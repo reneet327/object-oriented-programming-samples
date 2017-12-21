@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CIS247C_WK3_Lab_THOMAS", "CIS247C_WK3_Lab_THOMAS\CIS247C_WK3_Lab_THOMAS.vcxproj", "{5E1EFEF2-3726-4738-A6F8-EFF63FA26894}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E1EFEF2-3726-4738-A6F8-EFF63FA26894}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5E1EFEF2-3726-4738-A6F8-EFF63FA26894}.Debug|Win32.Build.0 = Debug|Win32
+		{5E1EFEF2-3726-4738-A6F8-EFF63FA26894}.Release|Win32.ActiveCfg = Release|Win32
+		{5E1EFEF2-3726-4738-A6F8-EFF63FA26894}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

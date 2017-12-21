@@ -1,0 +1,45 @@
+Employee emp1;
+    
+	
+
+	//set variables
+	Salaried sal;
+	
+	sal.setFirstName(getInput("First Name: "));
+	sal.setLastName(getInput("Last Name: "));
+	sal.setGender(getInput("Gender: ")[0]);
+	sal.setDependents(getInput("Number of Dependents: "));
+	sal.setAnnualSalary(getInput("Annual Salary: "));
+	sal.setBenefits.setHealthInsurance(getInput("Health Insurance: "));
+	
+	// create variable so user input can be changed to correct data type
+	string input;
+
+	// get Life insurance from user
+	input = getInput("Life Insurance: ");// use the input variable to store the users string input
+	double lI = atof(input.c_str());// change user input to double and add to lI variable
+	sal.bens.setLifeInsurance(lI);// set instance of bens/LiveInsurance inside the Employee class to lI
+
+//get vacation from user
+	input = getInput("Vacation: ");// use the input variable to store the users string input
+	int vac = atoi(input.c_str());// change the string input to an integer and place inside of the vac variable
+	sal.bens.setVacation(vac);// set instance of bens/vacation inside the Employee class to vac
+	
+	// call class function to display employee information
+	sal.displayEmployee();
+	
+	// call the class static function to get number of employees created
+	cout<<"Number of Employees Entered: "<<Employee::getNumEmployees()<<endl;
+
+	
+*******************************************************
+
+DisplayDivider("Employee 2");
+
+	Benefits benefits1("Kaiser", 500000, 20);
+
+	// create new employee per iLab3 instructions passing in all the values
+	Employee emp2("Mary", "Noia", 'F', 5, 24000.0, benefits1);
+
+	// call class function to display employee information
+	emp2.displayEmployee();

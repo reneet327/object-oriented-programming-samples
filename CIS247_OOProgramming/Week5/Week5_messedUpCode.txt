@@ -1,0 +1,425 @@
+// ---------------------------------------------------------------------------
+//Program Header 
+//Program Name:  Employee Class Integration  
+//Programmer:  Renee Thomas 
+//CIS247, Week 5 Lab 
+//Program Description:  Update Employee Class to inclued a Salaryied and Hourly employees
+// ---------------------------------------------------------------------------
+
+# include <iostream>
+# include <string>
+# include <iomanip>
+
+using namespace std;
+
+// create prototypes for functions
+void DisplayApplicationInformation();
+void DisplayDivider(string);
+string getInput(string);
+void TerminateApplication();
+
+
+// create Benefits Class
+class Benefits{
+	private:
+		string healthInsurance;
+		double lifeInsurance;
+		int vacation;
+
+	public:
+		Benefits();
+		Benefits(string hI, double lI, int vac);
+		void displayBenefits();
+		string getHealthInsurance();
+		void setHealthInsurance(string hI);
+		double getLifeInsurance();
+		void setLifeInsurance(double lI);
+		int getVacation();
+		void setVacation(int vac);
+
+	
+};
+
+
+// create Employee Class
+
+class Employee
+{
+	private:
+		static int numEmployees;
+
+	protected:
+		string firstName;
+		string lastName;
+		char gender;
+		int dependents;
+		double annualSalary;
+		Benefits bens;// create an instance of Benefits inside Employee class
+
+	public:
+		Employee();
+		Employee(string fn, string ln, char gen, int dep, double sal, Benefits bens_in); // don't forget to use the class name as the data type!
+		double calculatePay(double sal);
+		void displayEmployee();
+		string getFirstName();
+		void setFirstName(string fn);
+		string getLastName();
+		void setLastName(string ln);
+		char getGender();
+		void setGender(char gen);
+		int getDependents();
+		void setDependents(int dep);
+		double getAnnualSalary();
+		void setAnnualSalary(double sal);
+		static int getNumEmployees();
+		void setDependents(string dep);
+		void setAnnualSalary(string sal);
+		void setBenefits(Benefits bft);
+		Benefits getBenefits();
+				
+		
+};
+
+
+
+// create Salaried class that inherits Employee class
+class Salaried:public Employee{
+	private:
+		const int MIN_MANAGEMENT_LEVEL;
+		const int MAX_MANAGEMENT_LEVEL;
+		const double BONUS_PERCENT;
+		int managementLevel;
+	public:
+		Salaried();
+		Salaried(string firstName, string lastName, char gender, int dependents, double annualSalary, Benefits bens, int ml);
+		Salaried(double sal, int ml);
+		double calculatePay(double sal);
+		void displayEmployee();
+		void setManagementLevel(int ml);
+		int getManagementLevel();
+		
+
+};
+
+// create Hourly class
+
+class Hourly : public Employee{
+	protected:
+		static const double MIN_WAGE;
+		static const double MAX_WAGE;
+		static const double MIN_HOURS;
+		static const double MAX_HOURS;
+		double wage;
+		double hours;
+		string category;
+
+	public:
+		Hourly();
+		Hourly(double, double, string);
+		Hourly(string cat );
+		double calculatePay(double sal);
+		void setAnnualSalary(double sal);
+		void displayEmployee();
+		double getWage();
+		void setWage(double w);
+		double getHours();
+		void setHours(double hrs);
+		string getCategory();
+		void setCategory(string cat);
+
+};
+
+
+
+
+
+int main(){
+
+	// call function for header information
+	DisplayApplicationInformation();
+
+	//***********************Start Program************************
+
+	// call function for divider for start program
+	DisplayDivider("Start Program");
+
+	
+
+
+	//***********************End Program************************
+
+	// call function to leave program
+	TerminateApplication();
+
+
+
+// keep page open until user hits any key
+cin.ignore();
+return 0;
+}
+
+
+//***********************Benefits Class Functions************************
+
+
+Benefits::Benefits(){
+	healthInsurance = "Not provided";
+	lifeInsurance = 0.0;
+	vacation = 14;
+}
+
+Benefits::Benefits(string hI, double lI, int vac){
+	healthInsurance = hI;
+	lifeInsurance = lI;
+	vacation = vac;
+}
+
+void Benefits::displayBenefits(){
+	cout<<"Heath Insurance: "<<healthInsurance<<endl;
+	cout<<"Life Insurance: "<<lifeInsurance<<endl;
+	cout<<"Vacation: "<<vacation<<endl;
+}
+
+string Benefits::getHealthInsurance(){return healthInsurance;}
+void Benefits::setHealthInsurance(string hI){healthInsurance = hI;}
+double Benefits::getLifeInsurance(){return lifeInsurance;}
+void Benefits::setLifeInsurance(double lI){lifeInsurance = lI;}
+int Benefits::getVacation(){return vacation;}
+void Benefits::setVacation(int vac){vacation = vac;}
+
+
+
+
+//***********************Employee Class Functions************************
+
+int Employee::numEmployees = 0;
+
+// default constructor
+Employee::Employee()
+{
+	firstName = "Not Given";
+	lastName = "Not Given";
+	gender = 'U';
+	dependents = 0;
+	annualSalary = 20000;
+	bens = Benefits();
+	numEmployees ++;
+	
+}
+
+// Employee constructor with multi arguements (remember to use class name as the data type when integrating into parameters)
+Employee::Employee(string fn, string ln, char gen, int dep, double sal, Benefits bens_in )
+{
+	firstName = fn; 
+	lastName = ln;
+	gender = gen;
+	dependents = dep;
+	annualSalary = sal;
+	bens = bens_in;// set original instance to parameter instance
+	numEmployees ++;
+}
+
+
+// create function for calculatePay
+double Employee:: calculatePay(double sal){// returns the weekly salary from annualSalary
+	double wsal = sal/52;
+	return wsal;
+}
+
+// create function to display all employee information
+void Employee::displayEmployee()
+{
+	cout<<"\nEmployee Information"<<endl;
+	cout<<"__________________________________________________"<<endl<<endl;
+	cout<<"Employee Name: \t"<<firstName<<" "<<lastName<<endl;
+	cout<<"Gender: \t"<<gender<<endl;
+	cout<<"Dependents: \t"<<dependents<<endl;
+	cout<<"Annual Salary: \t"<< setprecision(2) << showpoint << fixed << annualSalary<<endl;
+	cout<<"Weekly Salary: \t"<< setprecision(2) << showpoint << fixed <<calculatePay(annualSalary)<<endl;
+	bens.displayBenefits();
+	cout<<endl<<endl;
+	
+}
+
+string Employee::getFirstName(){return firstName;}
+void Employee::setFirstName(string fn){firstName=fn;}
+string Employee::getLastName(){return lastName;}
+void Employee::setLastName(string ln){lastName=ln;}
+char Employee::getGender(){return gender;}
+void Employee::setGender(char gen){gender=gen;}
+int Employee::getDependents(){return dependents;}
+void Employee::setDependents(int dep){dependents=dep;}
+void Employee::setDependents(string dep){dependents= atoi(dep.c_str());}
+double Employee::getAnnualSalary(){return annualSalary;}
+void Employee::setAnnualSalary(double sal){annualSalary=sal;}
+void Employee::setAnnualSalary(string sal){annualSalary=atof(sal.c_str());}
+int Employee::getNumEmployees(){return numEmployees;}
+
+void Employee::setBenefits(Benefits bft){
+	bens = bft;
+}
+Benefits Employee::getBenefits(){return bens;}// set up function to get benefits from the Employee class
+
+
+
+
+
+//***********************Salaried Class Functions************************
+
+Salaried::Salaried(): Employee(){
+	
+	
+	managementLevel = 0;
+}
+
+Salaried::Salaried(string firstName, string lastName, char gender, int dependents, double annualSalary, Benefits bens, int ml)
+	:Employee(firstName, lastName, gender, dependents, annualSalary, bens)
+{ 
+ managementLevel = ml; 
+}
+
+Salaried::Salaried(double sal, int ml)
+: 
+Employee()
+{
+	annualSalary = sal;
+	managementLevel = ml;
+}
+double Salaried::calculatePay(double sal){
+	double wsal = sal/52;
+	wsal = wsal*(1+managementLevel*BONUS_PERCENT);
+	return wsal;
+	
+
+}
+void Salaried::displayEmployee(){
+cout<<"\nEmployee Information"<<endl;
+	cout<<"__________________________________________________"<<endl<<endl;
+	cout<<"Employee Name: \t"<<firstName<<" "<<lastName<<endl;
+	cout<<"Gender: \t"<<gender<<endl;
+	cout<<"Dependents: \t"<<dependents<<endl;
+	cout<<"Annual Salary: \t"<< setprecision(2) << showpoint << fixed << annualSalary<<endl;
+	cout<<"Weekly Salary: \t"<< setprecision(2) << showpoint << fixed <<calculatePay(annualSalary)<<endl;
+	bens.displayBenefits();
+	cout<<"Management level: \t"<<managementLevel<<endl;
+	cout<<endl<<endl;
+}
+int Salaried::getManagementLevel(){
+	return managementLevel;
+}
+void Salaried::setManagementLevel(int ml){
+	while (ml < MIN_MANAGEMENT_LEVEL || ml > MAX_MANAGEMENT_LEVEL){
+		cout<<"Error:  You must pick a number greater than 0 but less than 4.  Please try again.";
+	}
+	managementLevel = ml;
+}
+
+
+
+//***********************Hourly Class Functions************************
+const double Hourly::MIN_WAGE = 10;
+const double Hourly::MAX_WAGE = 75;
+const double Hourly::MIN_HOURS = 0;
+const double Hourly::MAX_HOURS = 50;
+
+Hourly::Hourly(): Employee(){
+	wage = 0.0;
+	hours = 0.0;
+	category = "X";
+}
+Hourly::Hourly(double wg, double hrs, string cat): Employee(){
+	
+	wage = wg;
+	hours = hrs;
+	category = cat;
+}
+Hourly::Hourly(string cat ): Employee(firstName, lastName, gender, dependents, annualSalary, bens){
+	
+	category = cat;
+	
+}
+double Hourly::calculatePay(double sal){
+
+	double weeklyPay = wage * hours;
+	return weeklyPay;
+}
+void Hourly::setAnnualSalary(double wg){
+	annualSalary = calculatePay(wg) * 50;
+}
+void Hourly::displayEmployee(){
+
+	cout<<"\nEmployee Information"<<endl;
+	cout<<"__________________________________________________"<<endl<<endl;
+	cout<<"Employee Name: \t"<<firstName<<" "<<lastName<<endl;
+	cout<<"Gender: \t"<<gender<<endl;
+	cout<<"Dependents: \t"<<dependents<<endl;
+	cout<<"Annual Salary: \t"<< setprecision(2) << showpoint << fixed << annualSalary<<endl;
+	cout<<"Weekly Salary: \t"<< setprecision(2) << showpoint << fixed <<calculatePay(annualSalary)<<endl;
+	bens.displayBenefits();
+	cout<<"Category: \t"<<category<<endl;
+	cout<<endl<<endl;
+}
+double Hourly::getWage(){return wage;}
+void Hourly::setWage(double w){
+	while(w<10 || w>75){
+		cout<<"Error: You must input a number greater than 10 and less than 75."<<endl;
+	}
+	wage = w;
+}
+double Hourly::getHours(){return hours;}
+void Hourly::setHours(double hrs){
+	while(hrs<0 || hrs>50){
+		cout<<"Error: You must input a number greater than 0 and less than 50."<<endl;
+	}
+	hours = hrs;
+}
+string Hourly::getCategory(){return category;}
+void Hourly::setCategory(string cat){
+	while(cat != "temporary" || cat != "part time" || cat != "full time"){
+	cout<<"Error: Please input either temporary, part time, full time."<<endl;
+	}
+	category = cat;
+}
+
+//***********************Non Class Functions************************
+// create header function
+void DisplayApplicationInformation(){
+	// create header to introduce the program
+	cout<<"\n--------------------------------------------"<<endl;
+	cout<<"| Welcome the Basic User Interface Program    |"<<endl; 
+	cout<<"| CIS247, Week 5 Lab                          |"<<endl; 
+	cout<<"| Name:  RENEE THOMAS                         |"<<endl; 
+	cout<<"| This program adds a Salaried and Hourly     |"<<endl;
+	cout<<"| class, then outputs the data for each.      |"<<endl;
+	
+}
+
+// create divider string function
+void DisplayDivider(string outputTitle){
+	
+	cout<<"\n**************** "<<outputTitle<< " ****************"<<endl<<endl;
+
+}
+
+// create function to get information from user
+string getInput(string inputType){
+	// declare variable strInput
+	string strInput;
+	
+	// get information from user
+	cout<<"Enter your " <<inputType;
+	//put user input into variable strInput
+	getline(cin, strInput);
+	
+	//output user input
+	return strInput;
+}
+
+// create good bye message
+void TerminateApplication(){
+	cout<<"\n\nThank you for running the Employee class program for hourly and salaried employees."<<endl;
+	cout<<"Press any key to leave the program..."<<endl;
+}
+
+
+

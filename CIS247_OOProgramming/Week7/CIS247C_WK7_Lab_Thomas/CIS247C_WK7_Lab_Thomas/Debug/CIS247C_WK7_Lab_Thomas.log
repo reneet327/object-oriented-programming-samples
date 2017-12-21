@@ -1,0 +1,36 @@
+﻿Build started 6/17/2014 8:54:00 PM.
+     1>Project "C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\CIS247C_WK7_Lab_Thomas\CIS247C_WK7_Lab_Thomas.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\Debug\".
+       InitializeBuildStatus:
+         Creating "Debug\CIS247C_WK7_Lab_Thomas.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt cashRegisterImp.cpp dispenserTypeImp.cpp mainProgCandyMachine.cpp
+         mainProgCandyMachine.cpp
+         dispenserTypeImp.cpp
+         cashRegisterImp.cpp
+         Generating Code...
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\CIS247C_WK7_Lab_Thomas.exe.embed.manifest.res" Debug\CIS247C_WK7_Lab_Thomas_manifest.rc 
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\Debug\CIS247C_WK7_Lab_Thomas.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CIS247C_WK7_Lab_Thomas.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\Debug\CIS247C_WK7_Lab_Thomas.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\Debug\CIS247C_WK7_Lab_Thomas.lib" /MACHINE:X86 Debug\CIS247C_WK7_Lab_Thomas.exe.embed.manifest.res
+         Debug\cashRegisterImp.obj
+         Debug\dispenserTypeImp.obj
+         Debug\mainProgCandyMachine.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\CIS247C_WK7_Lab_Thomas.exe.embed.manifest" /manifest Debug\CIS247C_WK7_Lab_Thomas.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\CIS247C_WK7_Lab_Thomas.exe.embed.manifest.res" Debug\CIS247C_WK7_Lab_Thomas_manifest.rc 
+       LinkEmbedManifest:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\Debug\CIS247C_WK7_Lab_Thomas.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CIS247C_WK7_Lab_Thomas.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\Debug\CIS247C_WK7_Lab_Thomas.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\Debug\CIS247C_WK7_Lab_Thomas.lib" /MACHINE:X86 Debug\CIS247C_WK7_Lab_Thomas.exe.embed.manifest.res
+         Debug\cashRegisterImp.obj
+         Debug\dispenserTypeImp.obj
+         Debug\mainProgCandyMachine.obj
+         CIS247C_WK7_Lab_Thomas.vcxproj -> C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\Debug\CIS247C_WK7_Lab_Thomas.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\CIS247C_WK7_Lab_Thomas.unsuccessfulbuild".
+         Touching "Debug\CIS247C_WK7_Lab_Thomas.lastbuildstate".
+     1>Done Building Project "C:\Users\Renee\Documents\OldComputerFiles\Renee\Documents\SchoolStuff\CIS247_OOProgramming\Week7\CIS247C_WK7_Lab_Thomas\CIS247C_WK7_Lab_Thomas\CIS247C_WK7_Lab_Thomas.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:14.36
